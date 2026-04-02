@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dilan/Documents/NetBeansProjects/Tienda_Online/src/View/HomeView.java</file>
-            <file>file:/C:/Users/Dilan/Documents/NetBeansProjects/Tienda_Online/src/View/SignUp.java</file>
-            <file>file:/C:/Users/Dilan/Documents/NetBeansProjects/Tienda_Online/src/View/Login.java</file>
-            <file>file:/C:/Users/Dilan/Documents/NetBeansProjects/Tienda_Online/src/Model/Usuario.java</file>
+            <file>file:/C:/Users/Helinks/Desktop/Proyecto/Tienda-online-universidad/src/Service/CategoriaService.java</file>
+            <file>file:/C:/Users/Helinks/Desktop/Proyecto/Tienda-online-universidad/src/Controller/CategoriaController.java</file>
+            <file>file:/C:/Users/Helinks/Desktop/Proyecto/Tienda-online-universidad/src/View/categoriaCrud.java</file>
+            <file>file:/C:/Users/Helinks/Desktop/Proyecto/Tienda-online-universidad/src/View/SignUp.java</file>
+            <file>file:/C:/Users/Helinks/Desktop/Proyecto/Tienda-online-universidad/src/View/Login.java</file>
         </group>
     </open-files>
 </project-private>

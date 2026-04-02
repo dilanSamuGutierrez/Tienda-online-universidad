@@ -16,6 +16,15 @@ public class Categoria {
         this.id = id;
         this.nombre = nombre;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    
     
     
 }
