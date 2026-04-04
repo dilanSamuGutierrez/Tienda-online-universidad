@@ -7,6 +7,8 @@ package Service;
 import Model.Categoria;
 import config.ConexionBD;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -29,7 +31,7 @@ public class CategoriaService {
     }
 
     public boolean Edit(Categoria categoria) {
-        String sql = "UPDATE FROM categoria SET nombre= ? WHERE id = ?";
+        String sql = "UPDATE categoria SET nombre= ? WHERE id = ?";
         try (Connection con = ConexionBD.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, categoria.getNombre());
             ps.setInt(2, categoria.getId());
@@ -43,36 +45,40 @@ public class CategoriaService {
 
     }
 
-    public Categoria Read( Categoria categoria) {
-        String sql = "SELECT * FROM categoria WHERE id = ?";
+    public List<Categoria> Read(Categoria categoria) {
+        List<Categoria> lista = new ArrayList<>();
+        String sql = "SELECT * FROM categoria WHERE nombre LIKE ?";
+        String search = "%" + categoria.getNombre() + "%";
+
         try (Connection con = ConexionBD.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, categoria.getId());
+            ps.setString(1, search);
 
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                return new Categoria(
+            while (rs.next()) {
+                Categoria categ = new Categoria(
                         rs.getInt("id"),
                         rs.getString("nombre")
                 );
+                lista.add(categ);
             }
+            return lista;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
-    
-    public boolean Delete(Categoria categoria){
-    String sql= "DELETE FROM categoria WHERE id = ?";
-    try(Connection con= ConexionBD.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql)){
-        ps.setInt(1, categoria.getId());
-        return ps.executeUpdate() > 0;
-    }catch(SQLException  e){
-        e.printStackTrace();
-        return false;
-    }
+
+    public boolean Delete(Categoria categoria) {
+        String sql = "DELETE FROM categoria WHERE id = ?";
+        try (Connection con = ConexionBD.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, categoria.getId());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

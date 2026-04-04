@@ -9,6 +9,7 @@ package Model;
  * @author Dilan
  */
 public class Categoria {
+
     private int id;
     private String nombre;
 
@@ -24,7 +25,8 @@ public class Categoria {
     public String getNombre() {
         return nombre;
     }
-    
-    
-    
+    @Override
+    public String toString(){
+    return this.nombre;}
+
 }
