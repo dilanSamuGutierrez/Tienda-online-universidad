@@ -224,7 +224,7 @@ public class categoriaCrud extends javax.swing.JFrame {
 
         String busqueda = nombreCategoriaBuscar.getText().trim();
 
-        List<Categoria> buscarCategoria = this.controller.Read(busqueda);
+        List<Categoria> buscarCategoria = this.controller.Read(busqueda.toLowerCase());
 
         DefaultListModel<Categoria> modelo = (DefaultListModel<Categoria>) resultadosBusqueda.getModel();
         

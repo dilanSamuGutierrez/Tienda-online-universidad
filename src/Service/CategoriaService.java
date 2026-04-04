@@ -47,7 +47,7 @@ public class CategoriaService {
 
     public List<Categoria> Read(Categoria categoria) {
         List<Categoria> lista = new ArrayList<>();
-        String sql = "SELECT * FROM categoria WHERE nombre LIKE ?";
+        String sql = "SELECT * FROM categoria WHERE LOWER(nombre) LIKE ?";
         String search = "%" + categoria.getNombre() + "%";
 
         try (Connection con = ConexionBD.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
